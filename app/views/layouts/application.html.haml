@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BicycleSharing
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .header#header
+      .header_log
+        = image_tag 'yurupota/logo.png'
+      .header_nav
+        = link_to 'TOP'
+        = link_to 'HowTo'
+        = link_to 'コース検索'
+        = link_to '新規投稿'
+      .dropdown.menu_btn
+        = image_tag 'menu_icon.png', class: 'dropbtn'
+        .dropdown-content.mini
+          = link_to 'ログイン'
+          = link_to '新規登録'
+
+    = yield
