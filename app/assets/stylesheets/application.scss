@@ -15,9 +15,11 @@
  */
  @import 'header';
  @import 'common';
+ @import 'slide';
+
 body{
 	color: #333333;
-	background-color: #FFFFFF;
+	background-color :#f5f5f5;
 	font-size: 100%;
 	line-height: 1.7;
 	-webkit-text-size-adjust: 100%;
