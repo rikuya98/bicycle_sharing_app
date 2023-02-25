@@ -12,10 +12,10 @@
       .header_logo
         = image_tag 'yurupota/logo_transparent.png'
       .header_nav
-        = link_to 'TOP'
+        = link_to 'TOP', root_path
         = link_to 'HowTo'
         = link_to 'コース検索'
         = link_to '新規投稿'
-        = link_to 'ユーザー登録'
-        = link_to 'ログイン'
+        = link_to 'ユーザー登録', new_user_registration_path
+        = link_to 'ログイン', new_user_session_path
     = yield
