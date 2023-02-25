@@ -1,0 +1,24 @@
+#header {
+    background-color: #A1E5AB;
+}
+
+.header_logo{
+    text-align: center;
+    img {
+        height: 170px;
+        width: 200px;
+    }
+}
+
+.header_nav{
+    display: flex;
+    justify-content: center;
+    a{
+        text-decoration: none;
+        color: white;
+        padding: 0px 30px;
+    }
+}
+
+
+
