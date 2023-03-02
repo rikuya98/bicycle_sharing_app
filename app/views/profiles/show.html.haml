@@ -1,10 +1,1 @@
-.container
-  .profile_container
-    .profile_name
-      %h3= current_user.display_name
-      .profile_avatar
-        .dropdown
-          = image_tag current_user.avatar_image
-          .dropdown-content
-            = link_to 'プロフィール編集',edit_profile_path
-    .profile_content
+= render 'commons/profile', user:current_user

@@ -6,8 +6,8 @@ class User < ApplicationRecord
   
   has_one :profile, dependent: :destroy
 
-  delegate :birthday, :gender, to: :profile, allow_nil: true
-  
+  delegate :birthday, :gender, :introduction, :bicycle_type, to: :profile, allow_nil: true
+
   def prepare_profile
     profile || build_profile
   end
@@ -25,5 +25,16 @@ class User < ApplicationRecord
     end
   end
 
+  def age
+    return '不明' unless birthday.present?
+    years = Time.zone.now.year - birthday.year
+    days = Time.zone.now.yday - birthday.yday
+
+    if days < 0
+      "#{years - 1}歳"
+    else
+      "#{years}歳"
+    end
+  end
 
 end

@@ -1,0 +1,54 @@
+.container
+  .profile_container
+    .profile_name
+      %h3= user.display_name
+      .profile_avatar
+        .dropdown
+          = image_tag user.avatar_image
+          .dropdown-content
+            = link_to 'プロフィール編集',edit_profile_path
+    .profile_content
+      %p 年齢：#{user.age || '?歳'}
+      %p 性別：#{I18n.t("enum.genders.#{user.gender || 'unknown'}")}
+      %p 自転車の種類：#{user.bicycle_type}
+      %p=user.introduction
+  .nav_bar
+    %h3 投稿記事
+    %h3 いいねした記事
+  .article_container
+    .article
+      .article_image
+        = image_tag 'top_image1.jpg'
+      %h5 絶景！！しまなみ海道！！
+      %ul.tag
+        %li 愛媛県
+        %li グルメ
+      .user_icon
+        =image_tag 'default-avatar.png'
+        .user_name
+          rky
+          %p  2月18日
+    .article
+      .article_image
+        = image_tag 'cafe_image.jpg'
+      %h5 美味しいコーヒーを求めて・・・
+      %ul.tag
+        %li 大阪府
+        %li グルメ
+      .user_icon
+        =image_tag 'default-avatar.png'
+        .user_name
+          giro
+          %p  12月2日
+    .article
+      .article_image
+        = image_tag 'image1.jpg'
+      %h5 桜を見ながら、散歩！！
+      %ul.tag
+        %li 兵庫県
+        %li 景色
+      .user_icon
+        =image_tag 'default-avatar.png'
+        .user_name
+          mn
+          %p  1月18日

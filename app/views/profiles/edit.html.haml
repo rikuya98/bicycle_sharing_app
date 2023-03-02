@@ -13,9 +13,9 @@
     %div 
       = f.text_field :nickname, class: 'text'
     %div 
-      = f.label :bicyle_type, '自転車の種類'
+      = f.label :bicycle_type, '自転車の種類'
     %div 
-      = f.select :bicyle_type, options_for_select(['ロードバイク', 'マウンテンバイク', 'シティサイクル', '小径車','グラベルロード','その他',]), {}, class: 'text'
+      = f.select :bicycle_type, options_for_select(['ロードバイク', 'マウンテンバイク', 'シティサイクル', '小径車','グラベルロード','その他',]), {}, class: 'text'
     %div
       = f.label :introduction, '自己紹介'
     %div 
