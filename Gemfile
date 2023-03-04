@@ -23,7 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'hamlit'
 gem 'devise'
-
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use Active Storage variant
