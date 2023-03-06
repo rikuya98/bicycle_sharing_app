@@ -1,0 +1,9 @@
+.container
+  .topslide
+    - @article.images.each do |image|
+      = image_tag image
+  .article_show
+    .article_title
+      = @article.title
+    .article_content
+      = @article.content
