@@ -5,6 +5,10 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
   has_many_attached :images
 
+  scope :tagged_with, lambda { |tag|
+    joins(:tags).where(tags: { name: tag })
+  }
+  
   def article_image(image)
     image.variant(resize_to_fill: [500, 500])
   end

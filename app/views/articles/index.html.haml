@@ -14,8 +14,8 @@
             = image_tag article.article_image(article.images.first) 
         %h5=article.title
         %ul.tag
-          %li 愛媛県
-          %li グルメ
+          - article.tags.each do |tag|
+            %li= tag.name
         .user_icon
           =image_tag article.user.avatar_image
           .user_name
