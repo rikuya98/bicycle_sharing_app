@@ -16,6 +16,10 @@
     %div
       = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {multiple: true},class: 'checkbox')
     %div
+      = f.label :prefecture_id, '都道府県'
+    %div
+      = f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: true}, class: 'text')
+    %div
       = f.label :content, '内容'
     %div
       = f.text_area :content
