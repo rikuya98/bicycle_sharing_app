@@ -1,4 +1,4 @@
-.container
+.container#article-show{data: {article_id: @article.id}}
   .topslide
     - @article.images.each do |image|
       = image_tag image
