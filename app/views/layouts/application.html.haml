@@ -15,7 +15,7 @@
         = link_to 'TOP', root_path
         = link_to 'HowTo'
         = link_to 'コース検索'
-        = link_to '新規投稿'
+        = link_to '新規投稿', new_article_path
         - if user_signed_in?
           = link_to 'プロフィール', profile_path
           = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }

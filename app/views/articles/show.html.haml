@@ -1,0 +1,13 @@
+.container
+  .topslide
+    - @article.images.each do |image|
+      = image_tag image
+  .article_show
+    .article_title
+      %h2= @article.title
+    %ul.tag
+      %li= @article.prefecture.name
+      - @article.tags.each do |tag|
+        %li= tag.name
+    .article_content
+      = @article.content

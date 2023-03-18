@@ -5,6 +5,10 @@ input,select {
       padding: 16px 24px;
       border: 1px solid #EBEBEB;
     }
+
+    &.checkbox {
+      margin: 10px 10px;
+    }
   }
   
   label {

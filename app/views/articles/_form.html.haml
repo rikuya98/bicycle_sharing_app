@@ -1,0 +1,27 @@
+.container
+  %ul
+    - article.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: article, url: articles_path ,local: true) do |f|
+    %div
+      = f.label :images, '画像'
+    %div
+      = f.file_field :images, multiple: true
+    %div
+      =f.label :title, 'タイトル'
+    %div
+      = f.text_field :title, class: 'text'
+    %div
+      = f.label :tag_ids, 'タグ'
+    %div
+      = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {multiple: true},class: 'checkbox')
+    %div
+      = f.label :prefecture_id, '都道府県'
+    %div
+      = f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{include_blank: true}, class: 'text')
+    %div
+      = f.label :content, '内容'
+    %div
+      = f.text_area :content
+    %div
+      = f.submit '保存', class: 'btn'

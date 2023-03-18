@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'jp_prefecture'
+
+JpPrefecture::Prefecture.all.each do |pref|
+
+Prefecture.create(name: pref.name, code: pref.code)
+
+end
