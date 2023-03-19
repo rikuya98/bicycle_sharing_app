@@ -9,5 +9,15 @@
       %li= @article.prefecture.name
       - @article.tags.each do |tag|
         %li= tag.name
+    .user_icon
+      =image_tag @article.user.avatar_image
+      .user_name
+        = @article.user.display_name
+        %p #{@article.created_at.strftime('%Y年%m月%d日')}
+      .like_btn.hidden.like-good
+        =image_tag 'like_btn2.png'
+      .like_btn.hidden.like-nogood
+        =image_tag 'unlike_btn.png'
+        %p いいね！
     .article_content
       = @article.content

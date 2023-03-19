@@ -28,3 +28,18 @@ $(document).ready(function() {
       next.addClass('active');
     }, 5000);
   });
+
+
+document.addEventListener('turbolinks:load', () => {
+  const dataset = $('#article-show').data()
+  const articleId = dataset.articleId
+  axios.get(`/articles/${articleId}/like`)
+  .then((response) => {
+    const hasLiked = response.data.hasLiked
+    if (hasLiked) {
+      $('.like-good').removeClass('hidden')
+  }else{
+    $('.like-nogood').removeClass('hidden')
+  }
+ })
+})
