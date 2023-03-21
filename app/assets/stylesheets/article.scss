@@ -20,12 +20,11 @@
 .article_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 .article {
     width: calc(33.33% - 8px);
     background-color: white;
-    margin: 16px 0;
+    margin: 16px 8px 16px 0;
     cursor: pointer;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
@@ -57,11 +56,15 @@
             display: inline-block;
             font-size: 16px;
             line-height: 55px;
-            
         }
     }
 
 }
+
+.article.last {
+    margin-right: 0;
+    width: 33.33%;
+  }
 
 .user_icon {
     display: flex;
@@ -114,7 +117,16 @@ li {
     .article_title {
         font-weight: bold;
         margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+    .article_menu img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    
 
     .article_content {
         margin-top: 20px;
