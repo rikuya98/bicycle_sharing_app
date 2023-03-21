@@ -2,19 +2,28 @@
     display: flex;
     justify-content: space-around;
     background-color: #A1E5AB;
+    width: 100%;
+    color:white;
+    text-align: center;
+    padding: 16px 0;
+    margin: 16px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
-    h3 {
-        padding: 30px 30px;
-        color:white;
+
+    h3{
+        color:white; 
     }
 }
+
+
 
 .article_container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 .article {
-    width: 33.33%;
+    width: calc(33.33% - 8px);
     background-color: white;
     margin: 16px 0;
     cursor: pointer;
@@ -88,6 +97,10 @@ li {
 }
 
 
+.content {
+    margin: 8px 8px;
+    padding: 8px 8px;
+}
 
 .card_content {
     margin:16px 16px;
