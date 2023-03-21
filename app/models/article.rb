@@ -3,6 +3,7 @@ class Article < ApplicationRecord
 
   has_many :article_tags, dependent: :destroy
   has_many :tags, through: :article_tags
+  has_many :likes, dependent: :destroy
   
   belongs_to :prefecture
 
@@ -14,5 +15,9 @@ class Article < ApplicationRecord
   
   def article_image(image)
     image.variant(resize_to_fill: [500, 500])
+  end
+
+  def like_count
+    likes.count
   end
 end

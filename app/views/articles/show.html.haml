@@ -1,13 +1,27 @@
-.container
+.container#article-show{data: {article_id: @article.id}}
   .topslide
     - @article.images.each do |image|
       = image_tag image
   .article_show
-    .article_title
-      %h2= @article.title
-    %ul.tag
-      %li= @article.prefecture.name
-      - @article.tags.each do |tag|
-        %li= tag.name
-    .article_content
-      = @article.content
+    .card_content
+      .article_title
+        %h2= @article.title
+      %ul.tag
+        %li= @article.prefecture.name
+        - @article.tags.each do |tag|
+          %li= tag.name
+      .user_icon
+        =image_tag @article.user.avatar_image
+        .user_name
+          = @article.user.display_name
+          %p #{@article.created_at.strftime('%Y年%m月%d日')}
+        .like_btn.hidden.like-good
+          =image_tag 'like_btn2.png'
+          %p いいね！
+          %p=@article.like_count
+        .like_btn.hidden.like-nogood
+          =image_tag 'unlike_btn.png'
+          %p いいね！
+          %p=@article.like_count
+      .article_content
+        = @article.content
