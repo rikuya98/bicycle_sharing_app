@@ -32,3 +32,21 @@
           %p=@article.like_count
       .article_content
         = @article.content
+  .nav_bar
+    %h3 コメント一覧
+  .article_show
+    .card_content
+      #comments
+        - @comments.each do |comment|
+          .user_icon
+            =image_tag comment.user.avatar_image
+            .user_name
+              = "#{comment.user.display_name}さん"
+              %p #{comment.created_at.strftime('%Y年%m月%d日')}
+            .comment
+              %p= comment.content
+      = form_with url: article_comments_path(@article), method: :post, id: "new_comment_form", data: { controller: "comments" }, remote: true do |f|
+        = f.text_area :content, placeholder: "コメントを入力してください"
+        = f.submit "コメントを追加", class: "btn"
+= javascript_pack_tag 'comments'
+
