@@ -1,0 +1,16 @@
+.nav_bar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #A1E5AB;
+    width: 100%;
+    color:white;
+    text-align: center;
+    padding: 16px 0;
+    margin: 16px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+
+    h3{
+        color:white; 
+    }
+}

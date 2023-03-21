@@ -7,8 +7,8 @@
     %h3 新着記事
     %h3 人気記事
   .article_container
-    - @articles.each do |article|
-      .article
+    - @articles.each_with_index do |article, index|
+      .article{class: index % 3 == 2 ? 'last' : nil}
         = link_to article_path(article.id) do
           .article_image
             = image_tag article.article_image(article.images.first) 

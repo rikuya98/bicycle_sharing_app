@@ -6,6 +6,13 @@
     .card_content
       .article_title
         %h2= @article.title
+        .article_menu
+          .dropdown
+            = image_tag 'menu_icon.png'
+            .dropdown-content
+              = link_to '編集', edit_article_path(@article.id)
+              = link_to '削除', article_path(@article.id), method: :delete, data: { confirm: '本当に削除しますか？' }
+        
       %ul.tag
         %li= @article.prefecture.name
         - @article.tags.each do |tag|
