@@ -9,6 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 import $ from 'jquery'
 import axios from 'axios'
+import { csrfToken } from 'rails-ujs'
+
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -42,4 +45,36 @@ document.addEventListener('turbolinks:load', () => {
     $('.like-nogood').removeClass('hidden')
   }
  })
+
+ $('.like-nogood').on('click', ()=> {
+  axios.post(`/articles/${articleId}/like`)
+  .then((response) => {
+    if (response.data.status === 'ok') {
+      $('.like-nogood').addClass('hidden')
+      $('.like-good').removeClass('hidden')
+    }
+  })
+  .catch((e) => {
+    window.alert('Error')
+    console.log(e)
+ })
 })
+
+  $('.like-good').on('click', ()=> {
+    axios.delete(`/articles/${articleId}/like`)
+    .then((response) => {
+      if (response.data.status === 'ok') {
+        $('.like-good').addClass('hidden')
+        $('.like-nogood').removeClass('hidden')
+      }
+    })
+    .catch((e) => {
+      window.alert('Error')
+      console.log(e)
+    })
+  })
+})
+
+
+
+
