@@ -1,0 +1,13 @@
+#comments
+  - @comments.each do |comment|
+    .user_icon
+      =image_tag comment.user.avatar_image
+      .user_name
+        = "#{comment.user.display_name}さん"
+        %p #{comment.created_at.strftime('%Y年%m月%d日')}
+      .comment
+        %p= comment.content
+      - if comment.user_id == current_user.id
+        .comment_btn
+          = link_to article_comment_path(@article.id, comment.id), method: :delete, remote:true, data: { confirm: '本当に削除しますか？' } do
+            = image_tag 'delete.png'
