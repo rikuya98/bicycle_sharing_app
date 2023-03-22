@@ -17,10 +17,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  @comment = Comment.find(params[:id])
-  @comment.destroy!
-  flash.now[:notice] = "コメントを削除しました。"
-  render :index
+    @comment = Comment.find(params[:id])
+    @comment.destroy!
+    flash.now[:notice] = "コメントを削除しました。"
+    @comments = @comment.article.comments 
+      respond_to do |format|
+      format.html { redirect_to article_path(@comment.article_id), notice: "コメントを削除しました。" }
+      format.js { render 'index' }
+    end
   end
 
   private
