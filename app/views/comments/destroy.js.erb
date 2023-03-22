@@ -1,0 +1,3 @@
+const commentsArea = document.getElementById("comments");
+commentsArea.innerHTML = "<%= j(render 'comments/index', { comments: @comment.article.comments }) %>";
+document.querySelector("textarea").value = "";

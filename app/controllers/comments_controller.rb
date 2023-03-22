@@ -8,12 +8,14 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash.now[:notice] = "コメントの投稿に成功しました。"
-      render :index
     else
       flash.now[:alert] ="コメントの投稿に失敗しました。"
-      render :index
     end
-
+    @comments = @article.comments
+    respond_to do |format|
+      format.html { redirect_to article_path(@comment.article_id), notice: "コメントを投稿しました。" }
+      format.js { render 'create' }
+    end
   end
 
   def destroy
@@ -23,7 +25,7 @@ class CommentsController < ApplicationController
     @comments = @comment.article.comments 
       respond_to do |format|
       format.html { redirect_to article_path(@comment.article_id), notice: "コメントを削除しました。" }
-      format.js { render 'index' }
+      format.js { render 'destroy' }
     end
   end
 
