@@ -11,9 +11,8 @@ class CommentsController < ApplicationController
     else
       flash.now[:alert] ="コメントの投稿に失敗しました。"
     end
-    @comments = @article.comments
+    @comments = @article.comments.order(created_at: :desc)
     respond_to do |format|
-      format.html { redirect_to article_path(@comment.article_id), notice: "コメントを投稿しました。" }
       format.js { render 'create' }
     end
   end
@@ -24,7 +23,6 @@ class CommentsController < ApplicationController
     flash.now[:notice] = "コメントを削除しました。"
     @comments = @comment.article.comments 
       respond_to do |format|
-      format.html { redirect_to article_path(@comment.article_id), notice: "コメントを削除しました。" }
       format.js { render 'destroy' }
     end
   end
