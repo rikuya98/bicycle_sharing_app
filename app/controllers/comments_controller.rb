@@ -18,10 +18,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
     @comment.destroy!
     flash.now[:notice] = "コメントを削除しました。"
-    @comments = @comment.article.comments 
+    @comments = @comment.article.comments
       respond_to do |format|
       format.js { render 'destroy' }
     end

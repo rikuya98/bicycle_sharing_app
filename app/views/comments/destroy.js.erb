@@ -1,7 +1,1 @@
-let commentsArea = document.getElementById("comments");
-commentsArea.innerHTML = "<%= j(render 'comments/index', { comments: @comment.article.comments }) %>";
-document.querySelector("textarea").value = "";
-
-<%# let form = document.querySelector('#comment-form');
-form.removeAttribute('data-ujs-remote');
-Rails.delegate(form, 'ajax:success', form, form.getAttribute('data-ujs-event')); %>
+updateCommentsArea(document.getElementById("comments"), '<%= j(render("comments/index", { comments: @comment.article.comments })) %>');
