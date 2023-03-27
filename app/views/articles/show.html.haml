@@ -32,3 +32,11 @@
           %p=@article.like_count
       .article_content
         = @article.content
+  .nav_bar
+    %h3 コメント一覧
+  .article_show
+    .card_content
+      = render 'comments/index', comment: @comment, article: @article
+      - if user_signed_in?
+        = render 'comments/form', comment: @comment, article: @article
+

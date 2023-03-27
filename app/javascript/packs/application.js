@@ -10,6 +10,8 @@ require("channels")
 import $ from 'jquery'
 import axios from 'axios'
 import { csrfToken } from 'rails-ujs'
+import 'packs/common';
+
 
 axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 
@@ -20,6 +22,7 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+// common.js
 
 
 $(document).ready(function() {
@@ -74,6 +77,7 @@ document.addEventListener('turbolinks:load', () => {
     })
   })
 })
+
 
 
 

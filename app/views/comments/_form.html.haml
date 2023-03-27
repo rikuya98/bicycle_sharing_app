@@ -1,0 +1,3 @@
+= form_with(model: [article, comment], url: article_comments_path(@article), html: { id: 'comment-form' }) do |f|
+  = f.text_area :content, placeholder: "コメントを入力してください"
+  = f.submit "コメントを追加", class: "btn"
