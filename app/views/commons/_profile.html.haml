@@ -14,9 +14,9 @@
       %p=user.introduction
   .nav_bar
     .nav_bar_item.active
-      = link_to '投稿した記事',profile_path
+      = link_to '投稿した記事',account_path(user)
     .nav_bar_item
-      = link_to 'いいねした記事',favorites_path
+      = link_to 'いいねした記事',favorite_path(user)
   .article_container
     - user.articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index

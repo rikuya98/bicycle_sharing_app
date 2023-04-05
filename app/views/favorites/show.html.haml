@@ -1,0 +1,22 @@
+.container
+  .profile_container
+    .profile_name
+      %h3= @user.display_name
+      .profile_avatar
+        .dropdown
+          = image_tag @user.avatar_image
+          .dropdown-content
+            = link_to 'プロフィール編集',edit_profile_path
+    .profile_content
+      %p 年齢：#{@user.age || '?歳'}
+      %p 性別：#{I18n.t("enum.genders.#{@user.gender || 'unknown'}")}
+      %p 自転車の種類：#{@user.bicycle_type}
+      %p=current_user.introduction
+  .nav_bar
+    .nav_bar_item.active
+      = link_to '投稿した記事',account_path(@user)
+    .nav_bar_item
+      = link_to 'いいねした記事',favorite_path(@user)
+  .article_container
+    - @articles.each_with_index do |article, index|
+      = render 'articles/article_all', article: article, index: index

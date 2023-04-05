@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
-    def index
-        @articles = current_user.favorite_articles
+    def show
+        @user = User.find(params[:id])
+        @articles = @user.favorite_articles
     end
 end
