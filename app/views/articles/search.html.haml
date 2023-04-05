@@ -14,3 +14,6 @@
       = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {multiple: true},class: 'checkbox')
     %div 
       = f.submit "検索", class: 'btn'
+    %h3 検索結果
+  .article_container
+    = render 'articles/article_all', articles: @articles

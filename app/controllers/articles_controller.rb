@@ -4,20 +4,7 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
     def search
-        @articles = Article.all
-      
-        if params[:keyword].present?
-          @articles = @articles.where('title LIKE ? OR content LIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
-        end
-      
-        if params[:prefecture_id].present?
-          @articles = @articles.where(prefecture_id: params[:prefecture_id])
-        end
-      
-        if params[:tag_ids].present?
-          @articles = @articles.joins(:tags).where(tags: { id: params[:tag_ids] })
-        end
-      
+        @articles = Article.search(params)
         render :search
     end
 

@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment = @article.comments.find(params[:id])
     @comment.destroy!
     flash.now[:notice] = "コメントを削除しました。"
-    @comments = @comment.article.comments
+    @comments = @article.comments
       respond_to do |format|
       format.js { render 'destroy' }
     end
