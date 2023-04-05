@@ -3,6 +3,10 @@ class ArticlesController < ApplicationController
     def index
         @articles = Article.all
     end
+    def search
+        @articles = Article.search(params)
+        render :search
+    end
 
     def new
         @article = current_user.articles.build

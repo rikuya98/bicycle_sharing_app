@@ -21,4 +21,46 @@ class Article < ApplicationRecord
   def like_count
     likes.count
   end
+
+  def self.search(params)
+    puts "tag_ids: #{params[:tag_ids]}"
+
+    articles = all
+  
+    if params[:keyword].present?
+      articles = articles.where('title ILIKE ? OR content ILIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    end
+  
+    if params[:prefecture_id].present?
+      articles = articles.where(prefecture_id: params[:prefecture_id])
+    end
+  
+    if params[:tag_ids].present?
+      articles = articles.joins(:tags).where(tags: { id: params[:tag_ids].split(',') })
+    end
+  
+    articles
+  end
+
+  # def self.search(params)
+  #   articles = all
+  
+  #   if params[:keyword].present?
+  #     articles = articles.where('title ILIKE ? OR content ILIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+  #   end
+  
+  #   if params[:prefecture_id].present?
+  #     articles = articles.where(prefecture_id: params[:prefecture_id])
+  #   end
+  
+  #   if params[:tag_ids].present?
+  #     tag_ids = params[:tag_ids].reject(&:blank?)
+  #     if tag_ids.present?
+  #       articles = articles.joins(:tags).where(tags: { id: tag_ids })
+  #     end
+  #   end
+  
+  #   articles.distinct
+  # end
+  
 end

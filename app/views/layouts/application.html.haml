@@ -15,7 +15,7 @@
       .header_nav
         = link_to 'TOP', root_path
         = link_to 'HowTo'
-        = link_to 'コース検索'
+        = link_to 'コース検索',search_articles_path
         = link_to '新規投稿', new_article_path
         - if user_signed_in?
           = link_to 'プロフィール', profile_path

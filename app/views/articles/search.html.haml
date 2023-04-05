@@ -1,0 +1,19 @@
+.container
+  = form_with url: search_articles_path, method: :get, local: true do |f|
+    %div
+      = f.label :keyword, '検索ワード'
+    %div 
+      = f.text_field :keyword, class: 'text'
+    %div 
+      = f.label :prefecture_id, '都道府県'
+    %div 
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "都道府県を選択", class: 'text'
+    %div 
+      = f.label :tag_ids, 'ジャンル'
+    %div 
+      = f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, {multiple: true},class: 'checkbox')
+    %div 
+      = f.submit "検索", class: 'btn'
+    %h3 検索結果
+  .article_container
+    = render 'articles/article_all', articles: @articles
