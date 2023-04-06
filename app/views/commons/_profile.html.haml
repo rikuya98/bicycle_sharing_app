@@ -13,42 +13,10 @@
       %p 自転車の種類：#{user.bicycle_type}
       %p=user.introduction
   .nav_bar
-    %h3 投稿記事
-    %h3 いいねした記事
+    .nav_bar_item.active
+      = link_to '投稿した記事',account_path(user)
+    .nav_bar_item
+      = link_to 'いいねした記事',favorite_path(user)
   .article_container
-    .article
-      .article_image
-        = image_tag 'top_image1.jpg'
-      %h5 絶景！！しまなみ海道！！
-      %ul.tag
-        %li 愛媛県
-        %li グルメ
-      .user_icon
-        =image_tag 'default-avatar.png'
-        .user_name
-          rky
-          %p  2月18日
-    .article
-      .article_image
-        = image_tag 'cafe_image.jpg'
-      %h5 美味しいコーヒーを求めて・・・
-      %ul.tag
-        %li 大阪府
-        %li グルメ
-      .user_icon
-        =image_tag 'default-avatar.png'
-        .user_name
-          giro
-          %p  12月2日
-    .article
-      .article_image
-        = image_tag 'image1.jpg'
-      %h5 桜を見ながら、散歩！！
-      %ul.tag
-        %li 兵庫県
-        %li 景色
-      .user_icon
-        =image_tag 'default-avatar.png'
-        .user_name
-          mn
-          %p  1月18日
+    - user.articles.each_with_index do |article, index|
+      = render 'articles/article_all', article: article, index: index

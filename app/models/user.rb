@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorite_articles, through: :likes, source: :article
 
   delegate :birthday, :gender, :introduction, :bicycle_type, to: :profile, allow_nil: true
 

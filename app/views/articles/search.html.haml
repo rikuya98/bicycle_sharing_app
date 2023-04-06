@@ -16,4 +16,5 @@
       = f.submit "検索", class: 'btn'
     %h3 検索結果
   .article_container
-    = render 'articles/article_all', articles: @articles
+    - @articles.each_with_index do |article, index|
+      = render 'articles/article_all', article: article, index: index
