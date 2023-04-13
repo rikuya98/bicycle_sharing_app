@@ -19,9 +19,11 @@
         = link_to '新規投稿', new_article_path
         - if user_signed_in?
           = link_to 'プロフィール', profile_path
+          = link_to 'ストラバで認証', user_strava_omniauth_authorize_path, data: { turbolinks: false}
           = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
         - else
           = link_to 'ユーザー登録', new_user_registration_path
+          = link_to 'ストラバで登録', user_strava_omniauth_authorize_path, data: { turbolinks: false}
           = link_to 'ログイン', new_user_session_path
     - if flash.present?
       .flash
