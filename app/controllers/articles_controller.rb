@@ -10,6 +10,12 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
+    if current_user.strava_token.present?
+        strava_service = StravaService.new(current_user.strava_token)
+        @strava_activites = strava_service.fetch_activities
+    else
+        @strava_activites = []
+    end
     end
 
     def show

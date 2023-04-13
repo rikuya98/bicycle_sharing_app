@@ -29,6 +29,8 @@ gem 'jp_prefecture'
 gem 'omniauth'
 gem 'omniauth-strava'
 gem 'multi_json'
+gem 'httparty'
+
 
 
 

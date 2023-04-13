@@ -24,4 +24,8 @@
     %div
       = f.text_area :content
     %div
+      = f.label :activity_id, "Strava Activity"
+    %div
+      = f.select :activity_id, @strava_activites&.map { |activity| [activity["name"], activity["id"]] }, {}, { class: 'text' }
+    %div
       = f.submit '保存', class: 'btn'
