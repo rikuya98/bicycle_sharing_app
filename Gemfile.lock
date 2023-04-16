@@ -331,6 +331,7 @@ DEPENDENCIES
   mini_magick
   multi_json
   omniauth
+  omniauth-oauth2
   omniauth-strava
   pg (>= 0.18, < 2.0)
   pry-byebug

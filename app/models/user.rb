@@ -55,8 +55,11 @@ class User < ApplicationRecord
       user.provider = auth.provider
       user.uid = auth.uid
       user.strava_token = auth.credentials.token
+      user.strava_refresh_token = auth.credentials.refresh_token # 追加
+      user.strava_token_expires_at = Time.at(auth.credentials.expires_at) # 追加
       user.save!
     end
   end
+  
   
 end
