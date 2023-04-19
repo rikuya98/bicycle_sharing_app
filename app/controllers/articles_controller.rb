@@ -10,12 +10,31 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
+    if current_user.strava_token.present?
+        strava_service = StravaService.new(current_user.strava_token)
+        @strava_activites = strava_service.fetch_activities
+    else
+        @strava_activites = []
+    end
     end
 
     def show
         @article = Article.find(params[:id])
         @comment = Comment.new
         @comments = @article.comments.order(created_at: :desc)
+
+
+        if @article.activity_id.present?
+            strava_service = StravaService.new(current_user&.strava_token)
+            @strava_activity = strava_service.fetch_activity(@article.activity_id)
+        end
+        # if current_user.strava_token.present?
+        #     strava_service = StravaService.new(current_user.strava_token)
+        #     @strava_activity = strava_service.fetch_activity(@article.activity_id)
+        # # end
+        # strava_service = StravaService.new(current_user&.strava_token)
+        # @strava_activity = strava_service.fetch_activity(@article.activity_id) if @article.activity_id.present?
+
     end
 
     def create
@@ -30,6 +49,12 @@ class ArticlesController < ApplicationController
 
     def edit
         @article = current_user.articles.find(params[:id])
+        if current_user.strava_token.present?
+            strava_service = StravaService.new(current_user.strava_token)
+            @strava_activites = strava_service.fetch_activities
+        else
+            @strava_activites = []
+        end
     end
 
     def update
@@ -51,6 +76,6 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :content, :prefecture_id, images: [], tag_ids: [])
+        params.require(:article).permit(:title, :content, :prefecture_id, :activity_id, images: [], tag_ids: [])
     end
 end
