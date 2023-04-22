@@ -31,6 +31,8 @@ gem 'omniauth-oauth2'
 gem 'omniauth-strava'
 gem 'multi_json'
 gem 'httparty'
+gem 'attr_encrypted'
+
 
 
 
