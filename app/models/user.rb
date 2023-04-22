@@ -1,3 +1,5 @@
+require 'attr_encrypted'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -13,6 +15,10 @@ class User < ApplicationRecord
   has_many :favorite_articles, through: :likes, source: :article
 
   delegate :birthday, :gender, :introduction, :bicycle_type, to: :profile, allow_nil: true
+
+  attr_encrypted :strava_token, key: ENV['STRAVA_TOKEN_ENCRYPTION_KEY']
+  attr_encrypted :strava_refresh_token, key: ENV['STRAVA_REFRESH_TOKEN_ENCRYPTION_KEY']
+
 
   def prepare_profile
     profile || build_profile
