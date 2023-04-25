@@ -2,6 +2,8 @@
   .profile_container
     .profile_name
       %h3= user.display_name
+      - if user.strava_linked?
+        %span.strava_linked Strava連携済
       .profile_avatar
         .dropdown
           = image_tag user.avatar_image

@@ -57,32 +57,27 @@ class User < ApplicationRecord
     profile&.nickname.present? && profile&.gender.present? && profile&.birthday.present?
   end
 
-  def self.from_omniauth(auth)
-    Rails.logger.debug "Auth object: #{auth.inspect}" # 追加
+  def strava_linked?
+    strava_token.present?
+  end
 
+  def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.email = auth.info.email || "temporary_email_#{auth.uid}@example.com"
       user.password = Devise.friendly_token[0,20]
       user.provider = auth.provider
       user.uid = auth.uid
-      # user.strava_token = auth.credentials.token
-      # user.strava_refresh_token = auth.credentials.refresh_token # 追加
-      # user.strava_token_expires_at = Time.at(auth.credentials.expires_at) # 追加
-
+ 
       user.save!
     end
   end
 
   def update_strava_auth(auth)
     update(
-      provider: auth.provider,
-      uid: auth.uid,
       strava_token: auth.credentials.token,
       strava_refresh_token: auth.credentials.refresh_token,
       strava_token_expires_at: Time.at(auth.credentials.expires_at)
     )
   end
 
-  
-  
 end
