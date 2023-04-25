@@ -72,6 +72,17 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  def update_strava_auth(auth)
+    update(
+      provider: auth.provider,
+      uid: auth.uid,
+      strava_token: auth.credentials.token,
+      strava_refresh_token: auth.credentials.refresh_token,
+      strava_token_expires_at: Time.at(auth.credentials.expires_at)
+    )
+  end
+
   
   
 end
