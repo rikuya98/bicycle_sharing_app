@@ -24,6 +24,7 @@
         - else
           = link_to 'ユーザー登録', new_user_registration_path
           = link_to 'ストラバで登録', user_strava_omniauth_authorize_path, data: { turbolinks: false}
+          = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, data: { turbolinks: false}
           = link_to 'ログイン', new_user_session_path
     - if flash.present?
       .flash
