@@ -3,6 +3,7 @@
     =image_tag 'top_image5.jpg'
   .nav_bar
     %h3 ログイン
+  %h3 メールアドレスでログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email
@@ -18,3 +19,6 @@
         = f.label :remember_me
     .actions
       = f.submit "Log in",class: 'btn'
+  %h3 Googleアカウントでログイン
+  = link_to user_google_oauth2_omniauth_authorize_path do
+    = image_tag 'btn_google_signin.png',class: 'google_signin'

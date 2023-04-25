@@ -28,6 +28,8 @@ Devise.setup do |config|
 
   config.omniauth :strava, ENV['STRAVA_CLIENT_ID'], ENV['STRAVA_CLIENT_SECRET'], scope: 'read,read_all,profile:read_all,activity:read_all,profile:write,activity:write'
 
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {}
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

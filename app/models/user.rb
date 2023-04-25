@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:strava]
+         :omniauthable, omniauth_providers: [:strava, :google_oauth2]
 
   has_one :profile, dependent: :destroy
 
@@ -53,26 +53,31 @@ class User < ApplicationRecord
     likes.exists?(article_id: article.id)
   end
 
+  def profile_completed?
+    profile&.nickname.present? && profile&.gender.present? && profile&.birthday.present?
+  end
+
+  def strava_linked?
+    strava_token.present?
+  end
 
   def self.from_omniauth(auth)
-    Rails.logger.debug "Auth object: #{auth.inspect}" # 追加
-
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.email = auth.info.email || "temporary_email_#{auth.uid}@example.com"
       user.password = Devise.friendly_token[0,20]
       user.provider = auth.provider
       user.uid = auth.uid
-      user.strava_token = auth.credentials.token
-      user.strava_refresh_token = auth.credentials.refresh_token # 追加
-      user.strava_token_expires_at = Time.at(auth.credentials.expires_at) # 追加
-      
-      if user.invalid?
-        Rails.logger.debug "Validation errors: #{user.errors.full_messages.join(', ')}"
-      end
-
+ 
       user.save!
     end
   end
-  
-  
+
+  def update_strava_auth(auth)
+    update(
+      strava_token: auth.credentials.token,
+      strava_refresh_token: auth.credentials.refresh_token,
+      strava_token_expires_at: Time.at(auth.credentials.expires_at)
+    )
+  end
+
 end
