@@ -15,7 +15,11 @@ class Article < ApplicationRecord
   }
   
   def article_image(image)
-    image.variant(resize_to_fill: [500, 500]) if image.present?
+    if image.present? && image.variable?
+      return image.variant(resize_to_fill: [500, 500])
+    else
+      return image
+    end
   end
 
   def like_count

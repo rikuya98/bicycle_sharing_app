@@ -1,9 +1,15 @@
 class ArticlesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+    before_action :check_strava_tokens, only: [:new]
     def index
         @articles = Article.all
     end
     def search
+        @keyword = params[:keyword]
+        @prefecture_id = params[:prefecture_id]
+        @tag_ids = params[:tag_ids]&.reject(&:blank?)
+
+
         @articles = Article.search(params)
         render :search
     end
@@ -78,4 +84,14 @@ class ArticlesController < ApplicationController
     def article_params
         params.require(:article).permit(:title, :content, :prefecture_id, :activity_id, images: [], tag_ids: [])
     end
+
+    def check_strava_tokens
+      user = current_user
+        if user.strava_authenticated?
+        else
+          flash[:alert] = "ストラバと連携してください"
+          redirect_to root_path
+        end
+    end
+
 end

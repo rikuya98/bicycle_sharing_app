@@ -15,6 +15,19 @@
     %div 
       = f.submit "検索", class: 'btn'
     %h3 検索結果
+  - if @keyword.present?
+    %p
+      検索ワード:
+      %span.tag= "#{@keyword}"
+  - if @prefecture_id.present?
+    %p
+      都道府県:
+      %span.tag= "#{Prefecture.find(@prefecture_id).name}"
+  - if @tag_ids.present?
+    %p 
+      ジャンル:
+      - @tag_ids.each do |tag_id|
+        %span.tag= "#{Tag.find(tag_id).name}#{'' unless tag_id == @tag_ids.last}"
   .article_container
     - @articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
