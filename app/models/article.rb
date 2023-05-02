@@ -13,7 +13,7 @@ class Article < ApplicationRecord
   scope :tagged_with, lambda { |tag|
     joins(:tags).where(tags: { name: tag })
   }
-  
+
   def article_image(image)
     if image.present? && image.variable?
       return image.variant(resize_to_fill: [500, 500])
@@ -24,6 +24,10 @@ class Article < ApplicationRecord
 
   def like_count
     likes.count
+  end
+
+  def self.ranked_by_likes
+    joins(:likes).group(:id).order('count(likes.id) desc')
   end
 
 

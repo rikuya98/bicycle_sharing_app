@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
     before_action :check_strava_tokens, only: [:new]
     def index
         @articles = Article.all
+        @ranked_articles = Article.ranked_by_likes
     end
+
+
     def search
         @keyword = params[:keyword]
         @prefecture_id = params[:prefecture_id]
