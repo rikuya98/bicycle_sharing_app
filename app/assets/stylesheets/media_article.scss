@@ -1,0 +1,335 @@
+@media screen and (max-width:
+
+640px) {
+
+.nav_bar_item a {
+
+font-size: 14px;
+
+}
+
+.article {
+
+width: 100%;
+
+height: auto;
+
+margin-right: 0;
+
+}
+
+.article.last {
+
+width: 100%;
+
+}
+
+.article img {
+
+width: 100%;
+
+height: auto;
+
+object-fit: cover;
+
+max-height: 150px;
+
+}
+
+.user_icon img {
+
+width: 15%;
+
+height: 15%;
+
+}
+
+ul.tag li {
+
+font-size: 10px;
+
+padding: 2px 3px;
+
+}
+
+.user_name {
+  width: 47%;
+
+font-size: 8px;
+
+margin-left: 3px;
+
+}
+
+.content {
+
+margin: 4px 4px;
+
+padding: 4px 4px;
+
+h5 {
+
+font-size: 14px;
+
+}
+
+}
+
+.card_content {
+
+margin: 8px 8px;
+
+padding: 8px 8px;
+
+}
+
+.article_show {
+
+font-size: 16px;
+
+}
+
+.article_show ul.tag li {
+
+font-size: 14px;
+
+padding: 3px 5px;
+
+}
+
+.article_show p, .article_show .user_name {
+
+font-size: 10px;
+
+width: 25%;
+
+}
+
+.like_btn p {
+
+font-size: 14px;
+
+line-height: 27px;
+
+}
+
+.comment {
+
+width: 100%;
+
+}
+
+.comment_btn img {
+
+width: 8px;
+
+height: 8px;
+
+}
+
+span.tag {
+
+font-size: 10px;
+
+padding: 3px 4px;
+
+}
+
+.dropdown-content {
+
+display: none;
+
+position: absolute;
+
+min-width: 160px;
+
+padding: 12px 16px;
+
+z-index: 1;
+
+background-color: #f9f9f9;
+
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+.dropdown-content a {
+
+color: black;
+
+text-decoration: none;
+
+display: block;
+
+text-align: left;
+
+}
+
+.nav_bar_item:hover .dropdown-content {
+
+display: block;
+
+}
+
+
+.nav_bar {
+  padding: 8px 0;
+  margin: 8px 0;
+}
+
+.nav_bar h3 {
+  font-size: 14px;
+}
+
+p {
+  font-size: 10px;
+}
+
+
+
+.article_title h2 {
+  font-size: 14px;
+}
+
+
+.article_show{
+  ul.tag  {
+    padding: 3px 2px;
+  }
+  ul.tag li {
+    font-size: 8px;
+  }
+
+}
+
+
+textarea#comment_content {
+  font-size: 10px;
+  min-height: 100px;
+}
+.btn{
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+
+
+
+
+}
+
+// article_show
+
+// @media screen and (max-width: 640px) {
+
+// p {
+
+// font-size: 8px;
+
+// }
+
+// .article_show {
+
+// .article_title {
+//   margin-bottom: 8px;
+// h2{
+//   font-size: 17px;
+// }
+
+// }
+
+
+// .article_menu {
+
+// display: flex;
+
+// flex-direction: column;
+
+// }
+
+// .dropdown-content {
+
+// min-width: 100px;
+
+// padding: 8px 12px;
+
+// }
+
+// ul.tag li {
+
+// font-size: 12px;
+
+// padding: 2px 4px;
+
+// }
+
+// .user_icon{
+// }
+
+// .user_icon img {
+
+
+
+// }
+
+// .user_name {
+//   width: 50%;
+
+// }
+
+// .article_content {
+
+// font-size: 14px;
+
+// }
+
+// .like_btn {
+//   width: 50%;
+// }
+
+// .like_btn p{
+
+// font-size: 4px;
+// line-height: 10px;
+
+// }
+
+// .card_content {
+
+// padding: 10px;
+
+// }
+
+// .strava-embed-placeholder {
+
+// width: 100%;
+
+// }
+
+// }
+
+// .nav_bar{
+//   padding: 8px 0;
+//   margin: 8px 0;
+
+//   h3 {
+
+//     font-size: 12px;
+    
+//     }
+
+// }
+
+
+
+// #comments {
+
+// img {
+  
+//   }
+
+// }
+
+
+// }
+

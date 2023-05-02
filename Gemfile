@@ -25,6 +25,7 @@ gem 'hamlit'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+
 gem 'jp_prefecture'
 gem 'omniauth'
 gem 'omniauth-oauth2'

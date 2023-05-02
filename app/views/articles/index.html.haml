@@ -16,8 +16,9 @@
   .nav_bar
     .nav_bar_item
       = link_to '新着記事'
-    .nav_bar_item
-      = link_to '人気記事'
   .article_container
     - @articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
+  .nav_bar
+    .nav_bar_item
+      = link_to '人気記事'
