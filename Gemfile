@@ -35,6 +35,7 @@ gem 'omniauth-google-oauth2'
 gem 'multi_json'
 gem 'httparty'
 gem 'attr_encrypted'
+gem 'kaminari'
 
 
 

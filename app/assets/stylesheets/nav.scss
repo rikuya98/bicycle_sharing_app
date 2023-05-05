@@ -5,31 +5,13 @@
     width: 100%;
     color:white;
     text-align: center;
-    padding: 16px 0;
-    margin: 16px 0;
+    padding: 10px 10px;
+    margin: 0;
+    border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
 
     h3{
         color:white; 
     }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-content {
-        font-weight: normal;
-        display: none;
-        right: 0;
-        position: absolute;
-        background-color: white;
-        min-width: 800px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 3;
-        &.mini {
-            min-width: 800px;
-        }
-      }
-}
+  }

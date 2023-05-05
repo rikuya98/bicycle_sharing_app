@@ -2,8 +2,9 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     before_action :check_strava_tokens, only: [:new]
     def index
-        @articles = Article.all
-        @ranked_articles = Article.ranked_by_likes
+        @articles = Article.page(params[:page]).per(3)
+        @ranked_articles = Article.ranked_by_likes.page(params[:page]).per(3)
+
     end
 
 
@@ -13,7 +14,7 @@ class ArticlesController < ApplicationController
         @tag_ids = params[:tag_ids]&.reject(&:blank?)
 
 
-        @articles = Article.search(params)
+        @articles = Article.search(params).page(params[:page]).per(6)
         render :search
     end
 
