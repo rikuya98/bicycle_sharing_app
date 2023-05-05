@@ -24,16 +24,27 @@ axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
 // const imagePath = (name) => images(name, true)
 // common.js
 
+$(document).on('turbolinks:load',function() {
+  $('.topslide .slide-image:first').addClass('active');
 
-$(document).ready(function() {
-    $('.topslide img:first').addClass('active');
-    setInterval(function() {
-      var active = $('.topslide img.active');
-      var next = active.next().length ? active.next() : $('.topslide img:first');
-      active.removeClass('active');
-      next.addClass('active');
-    }, 5000);
+  $('.topslide .arrow.right').click(function() {
+    var active = $('.topslide .slide-image.active');
+    var next = active.next('.slide-image').length ? active.next('.slide-image') : $('.topslide .slide-image:first');
+    active.removeClass('active');
+    next.addClass('active');
   });
+
+  $('.topslide .arrow.left').click(function() {
+    var active = $('.topslide .slide-image.active');
+    var prev = active.prev('.slide-image').length ? active.prev('.slide-image') : $('.topslide .slide-image:last');
+    active.removeClass('active');
+    prev.addClass('active');
+  });
+});
+
+
+
+
 
 
 document.addEventListener('turbolinks:load', () => {

@@ -25,6 +25,7 @@ gem 'hamlit'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+
 gem 'jp_prefecture'
 gem 'omniauth'
 gem 'omniauth-oauth2'
@@ -34,6 +35,7 @@ gem 'omniauth-google-oauth2'
 gem 'multi_json'
 gem 'httparty'
 gem 'attr_encrypted'
+gem 'kaminari'
 
 
 

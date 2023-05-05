@@ -20,5 +20,6 @@
     .nav_bar_item
       = link_to 'いいねした記事',favorite_path(user)
   .article_container
-    - user.articles.each_with_index do |article, index|
+    - user_articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
+  = paginate user_articles

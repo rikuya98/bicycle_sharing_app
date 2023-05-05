@@ -80,4 +80,22 @@ class User < ApplicationRecord
     )
   end
 
+
+  def strava_authenticated?
+    encrypted_strava_token.present? && encrypted_strava_refresh_token.present? && token_not_expired?
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  private
+
+  def token_not_expired?
+    return false if strava_token_expires_at.nil?
+    Time.now < strava_token_expires_at
+  end
+
 end

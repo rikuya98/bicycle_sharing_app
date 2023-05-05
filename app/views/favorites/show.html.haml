@@ -20,3 +20,4 @@
   .article_container
     - @articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
+  = paginate @articles

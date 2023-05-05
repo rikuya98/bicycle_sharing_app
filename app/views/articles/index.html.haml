@@ -1,13 +1,29 @@
 .container
   .topslide
-    = image_tag 'top_image2.jpg'
-    = image_tag 'top_image3.jpg'
-    = image_tag 'top_image4.jpg'
+    .slide-image
+      = image_tag 'top_image2.jpg'
+      .overlay-text サイクリングの魅力を共有しよう！あなたの鉄板コースを教えてください
+    .slide-image
+      = image_tag 'top_image3.jpg'
+      .overlay-text 美味しいグルメ、絶景、観光…サイクリングで楽しむ無限の可能性を探そう！
+    .slide-image
+      = image_tag 'top_image4.jpg'
+      .overlay-text さぁ、あなたのサイクリング体験をシェアしよう！
+    .arrow.left
+      = "<"
+    .arrow.right
+      = ">"
   .nav_bar
     .nav_bar_item
       = link_to '新着記事'
-    .nav_bar_item
-      = link_to '人気記事'
   .article_container
     - @articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
+  = paginate @articles
+  .nav_bar
+    .nav_bar_item
+      = link_to '人気記事'
+  .article_container
+    - @ranked_articles.each_with_index do |article, index|
+      = render 'articles/article_all', article: article, index: index
+  = paginate @ranked_articles

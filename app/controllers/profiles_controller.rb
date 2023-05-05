@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
 
     def show
         @profile = current_user.profile
+        @user = current_user
+        @user_articles = @user.articles.page(params[:page]).per(3)
     end
 
 

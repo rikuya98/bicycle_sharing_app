@@ -3,6 +3,9 @@
     - if article.images.present?
       .article_image
         = image_tag article.article_image(article.images.first) 
+    - else
+      .article_image
+        = image_tag 'noimage.jpg'
   .content
     %h5=article.title
     %ul.tag
