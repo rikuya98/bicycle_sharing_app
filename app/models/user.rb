@@ -85,6 +85,12 @@ class User < ApplicationRecord
     encrypted_strava_token.present? && encrypted_strava_refresh_token.present? && token_not_expired?
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   private
 
   def token_not_expired?

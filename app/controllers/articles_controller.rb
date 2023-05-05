@@ -92,9 +92,10 @@ class ArticlesController < ApplicationController
     def check_strava_tokens
       user = current_user
         if user.strava_authenticated?
+            @strava_connected = true
         else
-          flash[:alert] = "ストラバと連携してください"
-          redirect_to root_path
+          flash[:alert] = "アクティビティを投稿するには、ストラバと連携してください"
+            @strava_connected = false
         end
     end
 
