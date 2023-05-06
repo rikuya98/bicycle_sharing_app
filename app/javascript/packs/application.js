@@ -92,4 +92,34 @@ document.addEventListener('turbolinks:load', () => {
 
 
 
+document.addEventListener("turbolinks:load", function() {
 
+  let wrapper = document.getElementById("links");
+  
+  let addButton = document.querySelector(".add_link");
+  
+  addButton.addEventListener("click", function(e) {  
+  e.preventDefault();
+  let newLink = wrapper.querySelector(".link").cloneNode(true);  
+  let formIdx = document.querySelectorAll(".link").length;  
+  newLink.innerHTML = newLink.innerHTML.replace(/new_article_links/g, `article_links_attributes[${formIdx}]`);  
+  wrapper.appendChild(newLink); 
+  wrapper.appendChild(addButton);
+  newLink.querySelector(".remove_link").addEventListener("click", removeLink);
+  
+  });
+  
+  function removeLink(e) {  
+  e.preventDefault();  
+  let link = e.target.closest(".link");  
+  link.querySelector("input[type=hidden]").value = "1";  
+  link.style.display = "none";
+  
+  }
+  
+  document.querySelectorAll(".remove_link").forEach(function(removeButton) {  
+  removeButton.addEventListener("click", removeLink);
+  
+  });
+  
+  });

@@ -20,6 +20,8 @@ class ArticlesController < ApplicationController
 
     def new
         @article = current_user.articles.build
+        @article.article_links.build
+
     if current_user.strava_token.present?
         strava_service = StravaService.new(current_user.strava_token)
         @strava_activites = strava_service.fetch_activities
@@ -86,7 +88,15 @@ class ArticlesController < ApplicationController
     private
 
     def article_params
-        params.require(:article).permit(:title, :content, :prefecture_id, :activity_id, images: [], tag_ids: [])
+        params.require(:article).permit(
+            :title,
+            :content,
+            :prefecture_id,
+            :activity_id,
+            images: [],
+            tag_ids: [],
+            article_links_attributes: [:id, :url, :title, :_destroy]
+        )
     end
 
     def check_strava_tokens

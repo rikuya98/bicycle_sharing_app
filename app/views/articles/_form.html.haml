@@ -28,5 +28,14 @@
         = f.label :activity_id, "Strava Activity"
       %div
         = f.select :activity_id, @strava_activites&.map { |activity| [activity["name"], activity["id"]] }, {}, { class: 'text' }
+    #links
+      %div.link
+        = f.fields_for :article_links do |link|
+          = link.label :url, 'URL'
+          %div.input-with-remove
+            = link.text_field :url, class: 'text'
+            %a.remove_link x
+          = link.hidden_field :_destroy
+      %a.add_link.min_btn 追加
     %div
       = f.submit '保存', class: 'btn'

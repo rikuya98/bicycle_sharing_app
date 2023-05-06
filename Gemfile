@@ -36,6 +36,8 @@ gem 'multi_json'
 gem 'httparty'
 gem 'attr_encrypted'
 gem 'kaminari'
+gem 'nokogiri'
+
 
 
 

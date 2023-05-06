@@ -5,10 +5,15 @@ class Article < ApplicationRecord
   has_many :tags, through: :article_tags
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  has_many :article_links, dependent: :destroy
+  accepts_nested_attributes_for :article_links, allow_destroy: true, reject_if: :all_blank
   
   belongs_to :prefecture
 
   has_many_attached :images
+
+  
 
   scope :tagged_with, lambda { |tag|
     joins(:tags).where(tags: { name: tag })
@@ -51,5 +56,7 @@ class Article < ApplicationRecord
   
     articles.distinct
   end
+
+  
   
 end
