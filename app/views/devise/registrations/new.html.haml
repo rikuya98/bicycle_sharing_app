@@ -2,7 +2,7 @@
   .top_image
     =image_tag 'top_image1.jpg'
   .nav_bar
-    %h3 ユーザー登録
+    %h5 ユーザー登録
   %h3 メールアドレスで登録
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource

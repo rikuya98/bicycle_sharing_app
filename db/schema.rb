@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_21_000131) do
+ActiveRecord::Schema.define(version: 2023_05_06_044658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2023_04_21_000131) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "article_links", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.index ["article_id"], name: "index_article_links_on_article_id"
   end
 
   create_table "article_prefectures", force: :cascade do |t|
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2023_04_21_000131) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_links", "articles"
   add_foreign_key "article_prefectures", "articles"
   add_foreign_key "article_prefectures", "prefectures"
   add_foreign_key "article_tags", "articles"

@@ -17,3 +17,30 @@
   padding: 16px 0;
   font-weight: bold;
 }
+
+
+
+.min_btn {
+  display: inline-block;
+  background: #9FE5D8;
+  text-align: center;
+  width: 10%;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.input-with-remove {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.remove_link {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer; 
+}
+

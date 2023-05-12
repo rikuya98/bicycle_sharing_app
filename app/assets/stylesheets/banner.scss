@@ -1,0 +1,32 @@
+.banner {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .banner_title {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+
+  .article_link {
+    font-size: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color:#A1E5AB;
+    color: white;
+    padding: 8px 8px;
+    margin-top: 10px;
+}
+  
+  

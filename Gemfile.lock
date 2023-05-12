@@ -351,6 +351,7 @@ DEPENDENCIES
   listen (~> 3.2)
   mini_magick
   multi_json
+  nokogiri
   omniauth
   omniauth-google-oauth2
   omniauth-oauth2

@@ -27,3 +27,4 @@
     - @ranked_articles.each_with_index do |article, index|
       = render 'articles/article_all', article: article, index: index
   = paginate @ranked_articles
+= javascript_pack_tag 'article'
