@@ -1,0 +1,21 @@
+current directory: /Users/kusakarikuya/BicycleSharing/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+/Users/kusakarikuya/.rbenv/versions/2.6.5/bin/ruby -I /Users/kusakarikuya/.rbenv/versions/2.6.5/lib/ruby/site_ruby/2.6.0 extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/kusakarikuya/BicycleSharing/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230512-85590-1p2ldh3 sitelibdir\=./.gem.20230512-85590-1p2ldh3 clean
+
+current directory: /Users/kusakarikuya/BicycleSharing/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230512-85590-1p2ldh3 sitelibdir\=./.gem.20230512-85590-1p2ldh3
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/kusakarikuya/BicycleSharing/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230512-85590-1p2ldh3 sitelibdir\=./.gem.20230512-85590-1p2ldh3 install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20230512-85590-1p2ldh3/racc
+
+current directory: /Users/kusakarikuya/BicycleSharing/vendor/bundle/ruby/2.6.0/gems/racc-1.6.2/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20230512-85590-1p2ldh3 sitelibdir\=./.gem.20230512-85590-1p2ldh3 clean
