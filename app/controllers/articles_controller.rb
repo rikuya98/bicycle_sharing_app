@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
     before_action :check_strava_tokens, only: [:new]
     def index
-        @articles = Article.page(params[:page]).per(3)
+        @articles = Article.page(params[:page]).per(3).order(created_at: :desc)
         @ranked_articles = Article.ranked_by_likes.page(params[:page]).per(3)
 
     end
@@ -40,12 +40,6 @@ class ArticlesController < ApplicationController
             strava_service = StravaService.new(current_user&.strava_token)
             @strava_activity = strava_service.fetch_activity(@article.activity_id)
         end
-        # if current_user.strava_token.present?
-        #     strava_service = StravaService.new(current_user.strava_token)
-        #     @strava_activity = strava_service.fetch_activity(@article.activity_id)
-        # # end
-        # strava_service = StravaService.new(current_user&.strava_token)
-        # @strava_activity = strava_service.fetch_activity(@article.activity_id) if @article.activity_id.present?
 
     end
 
