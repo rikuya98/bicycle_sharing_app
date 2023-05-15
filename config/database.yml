@@ -86,4 +86,5 @@ production:
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:endpoint] %>
   pool: 20
+  port: 5432
   timeout: 1000
