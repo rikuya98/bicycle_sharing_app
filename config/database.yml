@@ -82,7 +82,6 @@ production:
   database: BicycleSharing_production
   adapter: postgresql
   encoding: unicode
-  collation: utf8mb4_general_ci
   username: <%= Rails.application.credentials.db[:user_name] %>
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:endpoint] %>
