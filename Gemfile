@@ -37,7 +37,7 @@ gem 'httparty'
 gem 'attr_encrypted'
 gem 'kaminari'
 gem 'nokogiri'
-
+gem 'aws-sdk-s3', require: false
 
 
 

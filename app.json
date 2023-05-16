@@ -1,0 +1,16 @@
+{
+    "name": "bicycle sharing aoo",
+    "description": "This is bicycle app",
+    "keywords": [],
+    "website": "https://github.com/rikuya98/bicycle_sharing_app",
+    "repository": "",
+    "env": {},
+    "addons": [
+      "heroku-postgresql:hobby-dev"
+    ],
+    "buildpacks": [{
+      "url": "heroku/nodejs"
+    }, {
+      "url": "heroku/ruby"
+    }]
+  }

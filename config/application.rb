@@ -15,6 +15,11 @@ module BicycleSharing
     config.load_defaults 6.0
     config.active_storage.variant_processor = :vips
 
+    if Rails.env.development? || Rails.env.test?
+      Bundler.require(*Rails.groups)
+      Dotenv::Railtie.load
+    end
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
