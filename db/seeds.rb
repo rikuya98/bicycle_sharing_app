@@ -12,3 +12,10 @@ JpPrefecture::Prefecture.all.each do |pref|
 Prefecture.create(name: pref.name, code: pref.code)
 
 end
+
+
+tags = ["グルメ", "観光", "アウトドア", "オフロード", "景色", "競技"]
+
+tags.each do |tag|
+  Tag.create(name: tag)
+end
