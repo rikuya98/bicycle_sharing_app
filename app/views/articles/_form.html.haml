@@ -23,7 +23,7 @@
       = f.label :content, '内容'
     %div
       = f.text_area :content
-    - if @Strava_connected
+    - if @strava_connected
       %div
         = f.label :activity_id, "Strava Activity"
       %div
@@ -39,4 +39,3 @@
       %a.add_link.min_btn 追加
     %div
       = f.submit '保存', class: 'btn'
-= javascript_pack_tag 'form'
