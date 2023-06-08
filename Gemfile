@@ -81,3 +81,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# RuboCopというコマンドを叩くと自動で変なインデントや軽微なコード修正をしてくれるGemがあるので入れるのお勧めです！
+# GitHub: https://github.com/rubocop/rubocop
+# 参考記事: https://nishinatoshiharu.com/insatall-rubocop/
+
+# annotateというmodelファイルにカラム等の情報を書き出してくれるGemがあるので入れるのお勧めです！
+# GitHub: https://github.com/ctran/annotate_models
+# 参考記事: https://qiita.com/koki_develop/items/ae6b5f41c18b2872d527

@@ -21,6 +21,8 @@ class ArticlesController < ApplicationController
     def new
         @article = current_user.articles.build
         @article.article_links.build
+        # 先に定義しておけば下記のif文が不要になりそうです！
+        # @strava_activites = []
 
     if current_user.strava_token.present?
         strava_service = StravaService.new(current_user.strava_token)
@@ -95,6 +97,9 @@ class ArticlesController < ApplicationController
 
     def check_strava_tokens
       user = current_user
+      # 以下の記述の方がシンプルに書けそうです！
+      # @strava_connected = user.strava_authenticated?
+      # flash[:alert] = "アクティビティを投稿するには、ストラバと連携してください" if user.strava_authenticated?
         if user.strava_authenticated?
             @strava_connected = true
         else

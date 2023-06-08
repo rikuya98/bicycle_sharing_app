@@ -1,4 +1,5 @@
 .nav_bar {
+// スペースは半角2つが良いかなと個人的に思いました！
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -8,7 +9,7 @@
     padding: 10px 0;
     margin: 10px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-
+// パッとコードを見たときにこういう無駄な2行改行等はあまり好まれないです・・・
 
     &_item{
         width: 50%;

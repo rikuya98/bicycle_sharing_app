@@ -30,6 +30,8 @@ class User < ApplicationRecord
   end
 
   def avatar_image
+    # これくらいであれば1行でも良いかもです！
+    # profile&.avatar&.attached? ? profile.avatar : 'default-avatar.png'
     if profile&.avatar&.attached?
      profile.avatar
     else

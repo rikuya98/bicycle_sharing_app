@@ -35,7 +35,7 @@ class Article < ApplicationRecord
     joins(:likes).group(:id).order('count(likes.id) desc')
   end
 
-
+  # 余裕があれば検索系はモジュール化した方が良いかもですね！(modelのfatを防ぐため)
   def self.search(params)
     articles = all
   
